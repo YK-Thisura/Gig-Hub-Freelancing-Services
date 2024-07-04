@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GigHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"  />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+        body {
+            margin-left: 20px;
+            margin-right: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        #skills {
+    height: 150px; /* Set your desired height */
+}
+
+        button {
+            background-color: darkblue;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+
+        .circular-input {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .circular-label {
+            display: block;
+            cursor: pointer;
+        }
+
+        .circular-area {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid black;
+        }
+
+        .circular-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .circular-area input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .circular-area i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: black; /* Set the color you want */
+    display: none;
+}
+
+.circular-area:hover i {
+    display: block;
+}
+
+label:not([for="website"]):not(.circular-label):after {
+    content: '*';
+    color: #A91B0D; /* Set the color you want */
+    margin-left: 2px; /* Adjust the spacing between the label and the asterisk if needed */
+}
+
+
+    </style>
+</head>
+
+<body style="height: 2000px;">
+
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:white">
+    <div class="container-fluid">
+        <a href="index.php" class="navbar-brand mb-0 h1">
+            <img class="d-inline-block align-center me-2" src="logo1.jpg" width="200" height="auto">
+        </a>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="container" style="padding-top: 120px;">
+
+
+            <form action="sellerform.php" method="post" enctype="multipart/form-data">
+                <h2>Personal Information</h2> 
+                <p style="font-size: 18px;">Tell us a bit about yourself. This information will appear on your public profile, so that potential buyers can get to know you better.</p>
+                <hr>
+                <!-- Full Name -->
+                <label for="fullName">Full Name</label>
+                <p><i>Enter your full name</i></p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" id="fullName" name="firstName" placeholder="First Name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" id="fullName" name="lastName" placeholder="Last Name" required>
+                    </div>
+                </div><br>
+
+                <!-- Display Name -->
+                <label for="displayName">Display Name</label>
+                <p><i>To help build credible and authentic connections with customers, they’ll now see your display name.</i></p>
+                  <p><i>We suggest using your first name and first initial of your last name.</i></p>
+                  <input type="text" id="displayName" name="displayName" placeholder="Type your display name" required><br><br>
+                  
+                <!-- Profile Picture -->
+                <label for="profilePicture" class="profileLabel">Profile Picture</label>
+                <p><i>Add a profile picture of yourself so customers will know exactly who they’ll be working with.</i></p>
+                    <div class="circular-input">
+                    <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="displayImage(this)" style="display: none;" required>
+                <label for="profilePicture" class="circular-label">
+                    <div class="circular-area">
+                    <i class="fas fa-camera"></i> <!-- FontAwesome Camera Icon -->
+                    <img id="selectedImage" src="#" alt="Selected Image" style="max-width: 100%; display: none;">
+                    </div>
+                </label>
+                </div><br><br>
+
+                <!-- Description -->
+                <label for="description">Description</label>
+                <p><i>Share a bit about your work experience, cool projects you've completed, and your area of expertise.</i></p>
+                <textarea id="description" name="description" rows="4" placeholder="Type your description" required></textarea><br><br>
+
+                <!-- Country -->
+                <label for="country">Country</label>
+                <p><i>Which country are you from?</i></p>
+                <input type="text" id="country" name="country" placeholder="Type your country" required><br><br><br>
+
+                <h2>Professional Info</h2>
+                <p style="font-size: 18px;">This is your time to shine. Let potential buyers know what you do best and how you gained your skills, and experience.</p>
+                <hr>
+
+                <div id="services-section">
+                    <!-- Service -->
+                    <label for="service">Service</label>
+                    <p><i>List the skills related to the services you're offering.</i></p>
+                    <select id="service" name="service" onchange="updateSkills()" required>
+                        <option value=""></option>
+                        <option value="Graphic & Design">Graphic & Design</option>
+                        <option value="Programming & Tech">Programming & Tech</option>
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Writing & Translation">Writing & Translation</option>
+                        <option value="Video & Animation">Video & Animation</option>
+                        <option value="Music & Audio">Music & Audio</option>
+                    </select><br><br>
+
+                    <!-- Skills -->
+                    <label for="skills">Skills</label>
+                    <select id="skills" name="skills[]" multiple required>
+                        <!-- Skills options will be dynamically added here -->
+                    </select><br><br>
+
+                    <!-- Education -->
+                    <label for="education">Education</label>
+                    <p><i>Add relevant education level that will help customers to get to know you better.</i></p>
+                    <select id="education" name="education" required>
+                        <option value=""></option>
+                        <option value="Higher Education">Higher Education</option>
+                        <option value="Upper Secondary">Upper Secondary</option>
+                        <option value="Lower Secondary School">Lower Secondary School</option>
+                        <option value="Primary School">Primary School</option>
+                    </select><br><br>
+
+                    <!-- Website -->
+                    <label for="website">Personal Website</label>
+                    <p><i>Include a link to your personal website or portfolio with your work samples.</i></p>
+                    <input type="text" id="website" name="website" placeholder="Enter your website or portfolio"><br><br><br>
+
+                    <h2>Account Security</h2>
+                    <p style="font-size: 18px;">Trust and safety are a big deal in our community. Please enter your email, password and phone number so that we can keep your account secured.</p>
+                    <hr>
+
+                    <!-- Email -->
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Enter your email address" required><br><br>
+
+                    <!-- Password -->
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create your password" required><br><br>
+
+                    <!-- Phone Number -->
+                    <label for="phonenumber">Phone Number</label>
+                    <input type="tel" id="phonenumber" name="phonenumber" class="intl-tel-input" required><br><br>
+
+                    <br>
+                    <button type="submit">Submit</button>
+                    <br><br><br><br><br><br><br><br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<!-- Add your existing script after including Bootstrap JS -->
+<script>
+    function displaySuccessModal() {
+        var myModal = new bootstrap.Modal(document.getElementById('successModal'));
+        myModal.show();
+    }
+
+    function displayImage(input) {
+        var selectedImage = document.getElementById('selectedImage');
+        selectedImage.style.display = 'block';
+
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            selectedImage.src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+
+    const skillsByService = {
+        'Graphic & Design': ['Logo Design', 'Book Design', 'UX Design', 'App Design','Website Design','Social Media Design'],
+        'Programming & Tech': ['Game Development', 'DevOps & Cloud', 'Mobile Apps', 'Desktop Applications','AI Applications','Website Development'],
+        'Digital Marketing': ['Affiliate Marketing', 'Social Media Marketing', 'Email Marketing','Video Marketing','Local SEO','Music Promotion'],
+        'Writing & Translation': ['Copywriting', 'Translation', 'Content Writing','Press Releases','Transcription','Website Content'],
+        'Video & Animation': ['Logo Animation', 'Video Editing', 'Music Videos','Game Trailers','Social Media Videos','App & Website Previews'],
+        'Music & Audio': ['Music Production', 'Audio Editing', 'Sound Design','DJ Mixing','Music Transcription','Vocal Tuning']
+    };
+
+    function updateSkills() {
+        var service = document.getElementById('service').value;
+        var skillsSelect = document.getElementById('skills');
+
+        // Clear existing skills
+        skillsSelect.innerHTML = '';
+
+        // Add skills based on the selected service
+        skillsByService[service].forEach(function(skill) {
+            var option = document.createElement('option');
+            option.value = skill;
+            option.text = skill;
+            skillsSelect.add(option);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var input = document.querySelector("#phonenumber");
+        window.intlTelInput(input, {
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.js",
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

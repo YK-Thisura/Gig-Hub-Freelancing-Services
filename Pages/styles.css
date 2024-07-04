@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+ /* Remove default link styles */
+ 
+ .navbar {
+    border-bottom: 1px solid lightgray;
+}
+ .navbar-nav .nav-link {
+    color: #999; /* Set the default color */
+    transition: color 0.3s; /* Add a smooth transition effect */
+    margin-right: 25px;
+    font-size: 18px;
+    font-family:Arial, Helvetica, sans-serif 
+}
+
+.navbar-nav .nav-link:hover {
+    color: darkblue; /* Change the color on hover */
+    cursor: pointer;
+}
+
+.navbar-nav .nav-link:not(:hover) {
+    opacity: 0.7; /* Set the opacity for non-hovered links */
+}
+ 
+.navbar-brand:hover {
+    cursor: pointer;
+}
+
+.navbar-toggler {
+    background-color: darkblue; /* Set the background color of the toggle button */
+    border: none; /* Remove the button border if needed */
+    cursor: pointer;
+}
+
+.navbar-toggler:focus {
+    outline: none; /* Remove the focus outline for better appearance */
+}
+
+.navbar-toggler-icon {
+    background-color: darkblue; /* Set the color of the toggle icon */
+}
+
+
+ 
+ a {
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+}
+
+
+/* Google Font CDN Link */
