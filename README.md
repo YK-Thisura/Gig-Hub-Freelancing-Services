@@ -22,7 +22,6 @@ Gig Hub Freelancing Service is a comprehensive web project developed using PHP, 
 - Register as a seller, customer, or log in as an admin to access respective functionalities.
 
 ## Screenshots
-Include screenshots of your website to give users a visual idea of your project. 
 
 ![Gig Hub](https://github.com/user-attachments/assets/dde9a14a-38bd-46d6-8024-6cd6598edd0f)
 
